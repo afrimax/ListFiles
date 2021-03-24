@@ -1,0 +1,6 @@
+plugin:
+    name: 'niainteractive.listfiles::lang.plugin.name'
+    description: 'niainteractive.listfiles::lang.plugin.description'
+    author: niainteractive
+    icon: oc-icon-file
+    homepage: ''

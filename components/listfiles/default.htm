@@ -1,0 +1,9 @@
+<ul>
+{% for item in __SELF__.fileList %}
+    {% if item.isFile() %}
+      <li>
+        <a href="{{item.publicUrl}}">{{item.path|basename}} </a> ({{ item.sizeToString() }})
+      </li>
+    {% endif %}
+{% endfor %}
+</ul>
