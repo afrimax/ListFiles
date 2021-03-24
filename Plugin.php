@@ -4,6 +4,17 @@ use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
 {
+	    public function pluginDetails()
+    {
+        return [
+            'name' => 'ListFiles',
+            'description' => 'Displays list of and link to files in a given directory.',
+            'author' => 'Nia Interactive with Hardik Satasiya',
+            'icon' => 'icon-folder-open',
+            'homepage' => 'https://niainteractive.com',
+        ];
+    }
+    
     public function registerComponents()
     {
         return [
