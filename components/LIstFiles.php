@@ -35,7 +35,7 @@ class ListFiles extends \Cms\Classes\ComponentBase
     {
 
         $folder = $this->property('directoryPath');
-        $mediaLib = \System\Classes\MediaLibrary::instance();
+        $mediaLib = \Media\Classes\MediaLibrar::instance();
 
         // it will return us MediaLibraryItem instance
         $this->fileList = $mediaLib->listFolderContents($folder);
