@@ -1,4 +1,4 @@
-<!-- <ul>
+<ul>
 {% for item in __SELF__.fileList %}
     {% if item.isFile() %}
       <li>
@@ -6,14 +6,5 @@
       </li>
     {% endif %}
 {% endfor %}
-</ul> -->
+</ul>
 
-
-{% for section in listFiles.sections %}
-    <h2>{{ section.title }}</h2>
-    <ul>
-        {% for file in section.files %}
-            <li>{{ file.name }}</li>
-        {% endfor %}
-    </ul>
-{% endfor %}
