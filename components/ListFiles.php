@@ -6,40 +6,52 @@ use Media\Classes\MediaLibrary; // Import MediaLibrary
 
 class ListFiles extends ComponentBase
 {
-    public $fileList = [];
+    public $sections = [];
 
     public function componentDetails()
     {
         return [
             'name' => 'List Files',
-            'description' => 'Displays list of files for a given directory.'
+            'description' => 'Displays list of files for given directories with titles.'
         ];
     }
 
     public function defineProperties()
     {
         return [
-            'directoryPath' => [
-                'title'             => 'Folder Path',
-                'description'       => 'This folder\'s files will be listed',
-                'default'           => '/',
+            'sections' => [
+                'title'             => 'Sections',
+                'description'       => 'List of sections with titles and directory paths',
+                'type'              => 'array',
+                'default'           => [
+                    ['title' => 'Gallery', 'directoryPath' => 'gallery']
+                ],
                 'required'          => true,
-                'type'              => 'string',
-                'validationMessage' => 'Please add a valid path, it is required.'
+                'validationMessage' => 'Please add at least one section with a valid title and path.'
             ]
         ];
     }
 
     public function onRender()
     {
-        $folder = $this->property('directoryPath');
-        $mediaLib = MediaLibrary::instance(); // Corrected class name
+        $sections = $this->property('sections');
+        $mediaLib = MediaLibrary::instance();
 
-        // Ensure the directory exists before fetching files
-        if ($mediaLib->folderExists($folder)) {
-            $this->fileList = $mediaLib->listFolderContents($folder);
-        } else {
-            $this->fileList = [];
+        foreach ($sections as $section) {
+            $folder = $section['directoryPath'];
+            $title = $section['title'];
+
+            if ($mediaLib->folderExists($folder)) {
+                $this->sections[] = [
+                    'title' => $title,
+                    'files' => $mediaLib->listFolderContents($folder)
+                ];
+            } else {
+                $this->sections[] = [
+                    'title' => $title,
+                    'files' => []
+                ];
+            }
         }
     }
 }
