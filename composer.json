@@ -1,0 +1,33 @@
+{
+    "name": "niainteractive/listfiles",
+    "description": "A component that displays a list of files for given directories with titles.",
+    "type": "october-plugin",
+    "require": {
+        "php": ">=7.4",
+        "october/rain": "^3.0",
+        "october/system": "^3.0",
+        "october/cms": "^3.0"
+    },
+    "authors": [
+        {
+            "name": "Nia Interactive",
+            "email": "info@niainteractive.com",
+            "homepage": "https://niainteractive.com"
+        },
+        {
+            "name": "Hardik Satasiya"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "NiaInteractive\\ListFiles\\": ""
+        }
+    },
+    "extra": {
+        "october-plugin": {
+            "code": "NiaInteractive.ListFiles",
+            "name": "ListFiles",
+            "description": "Displays a list of files and links to files in a given directory."
+        }
+    }
+}
