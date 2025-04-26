@@ -1,5 +1,5 @@
 {
-    "name": "niainteractive/listfiles",
+    "name": "niainteractive/listfiles-plugin",
     "description": "A component that displays a list of files for given directories with titles.",
     "type": "october-plugin",
     "require": {
